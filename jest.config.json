@@ -1,0 +1,7 @@
+{
+  "verbose": true,
+  "testMatch": [
+    "<rootDir>/tests/*.js"
+  ],
+  "maxWorkers": 1
+}
