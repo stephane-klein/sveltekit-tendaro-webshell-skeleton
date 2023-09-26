@@ -39,7 +39,7 @@
         </Card>
 
         <p class="text-center py-8 text-sm underline text-blue-600">
-            <a href="../password_reset/">Forget password?</a>
+            <a href="../reset_password/">Forget password?</a>
         </p>
     </div>
 </form>
