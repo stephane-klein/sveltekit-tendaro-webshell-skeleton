@@ -1,5 +1,8 @@
 <script>
     import logo from "$lib/assets/tendaro.svg";
+    import { Menu, MenuButton } from "@rgossiaux/svelte-headlessui";
+    import MenuItems from "$lib/MenuItems.svelte";
+    import MenuItem from "$lib/MenuItem.svelte";
 
     export let data;
 </script>
@@ -22,22 +25,20 @@
         </div>
 
         <div class="w-40 flex flex-row flex-row-reverse">
-            <button
-                type="button"
-                class="relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                title={data.user.username}
-                id="user-menu-button"
-                aria-expanded="false"
-                aria-haspopup="true"
-            >
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">Open user menu</span>
-                <img
-                    class="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                />
-            </button>
+            <Menu class="relative">
+                <MenuButton>
+                    <img
+                        class="h-8 w-8 rounded-full"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                    />
+                </MenuButton>
+                <MenuItems>
+                    <MenuItem href="/my/profile">Profile, password</MenuItem>
+                    <MenuItem href="/my/preferences">Preferences</MenuItem>
+                    <MenuItem href="/logout/">Log out</MenuItem>
+                </MenuItems>
+            </Menu>
         </div>
     </nav>
 
