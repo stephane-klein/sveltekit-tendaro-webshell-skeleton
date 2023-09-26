@@ -3,6 +3,7 @@
     import { Menu, MenuButton } from "@rgossiaux/svelte-headlessui";
     import MenuItems from "$lib/MenuItems.svelte";
     import MenuItem from "$lib/MenuItem.svelte";
+    import SectionTitle from "$lib/SectionTitle.svelte";
 
     export let data;
 </script>
@@ -34,6 +35,15 @@
                     />
                 </MenuButton>
                 <MenuItems>
+                    <SectionTitle align="left" class="p-2 text-xs">
+                        <span class="text-xs font-bold">Notifications are on</span>
+                    </SectionTitle>
+                    <p class="text-xs p-2 color-gray-700">
+                        You're set to receive email and browser notifications for everything all the time.
+                    </p>
+                    <SectionTitle align="left" class="p-2 text-xs">
+                        <span class="text-xs font-bold">Personal Settings</span>
+                    </SectionTitle>
                     <MenuItem href="/my/profile">Profile, password</MenuItem>
                     <MenuItem href="/my/preferences">Preferences</MenuItem>
                     <MenuItem href="/logout/">Log out</MenuItem>
