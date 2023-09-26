@@ -1,5 +1,5 @@
 <script>
-    import SectionTitle from "./SectionTitle.svelte";
+    import SectionTitle from "$lib/SectionTitle.svelte";
 
     export let Hst;
 </script>
@@ -9,5 +9,5 @@
 
     <SectionTitle align="left">Project Activity</SectionTitle>
 
-    <SectionTitle align="center"><span class="text-xs">Project Activity</span></SectionTitle>
+    <SectionTitle align="center" class="text-xs"><span class="text-xs">Project Activity</span></SectionTitle>
 </Hst.Story>

@@ -3,6 +3,7 @@
     import Button from "$lib/Button.svelte";
     import FlatCard from "$lib/FlatCard.svelte";
     import OptionButton from "$lib/OptionButton.svelte";
+    import SectionTitle from "$lib/SectionTitle.svelte";
 
     export let data;
 </script>
@@ -62,6 +63,8 @@
                     on-topic.
                 </p>
             </FlatCard>
+
+            <SectionTitle align="center" class="mt-4"><span class="font-bold">Workspace Activity</span></SectionTitle>
 
             <slot />
         </div>
