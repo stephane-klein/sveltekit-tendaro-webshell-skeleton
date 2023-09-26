@@ -23,6 +23,7 @@ Components and libraries:
 - ✅ Migration powered by [graphile-migrate](https://github.com/graphile/migrate)
 - ✅ Token generated with [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 - ✅PostgreSQL [Row-Level Security](https://www.postgresql.org/docs/16/ddl-rowsecurity.html)
+- ✅[svelte-headlessui](https://github.com/rgossiaux/svelte-headlessui)
 
 Tooling:
 
