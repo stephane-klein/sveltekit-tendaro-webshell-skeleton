@@ -25,6 +25,7 @@ users:
     username: john-doe1
     first_name: John
     last_name: Doe1
+    lang: EN
     email: john.doe1@example.com
     is_superuser: true
     password: secret1
@@ -41,6 +42,7 @@ users:
     username: john-doe2
     first_name: John
     last_name: Doe2
+    lang: FR
     email: john.doe2@example.com
     password: secret2
     spaces:

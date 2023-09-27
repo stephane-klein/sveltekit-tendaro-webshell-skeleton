@@ -22,8 +22,9 @@ Components and libraries:
 - ✅ [Postgres.js](https://github.com/porsager/postgres) - PostgreSQL client for Node.js
 - ✅ Migration powered by [graphile-migrate](https://github.com/graphile/migrate)
 - ✅ Token generated with [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
-- ✅PostgreSQL [Row-Level Security](https://www.postgresql.org/docs/16/ddl-rowsecurity.html)
-- ✅[svelte-headlessui](https://github.com/rgossiaux/svelte-headlessui)
+- ✅ PostgreSQL [Row-Level Security](https://www.postgresql.org/docs/16/ddl-rowsecurity.html)
+- ✅ [svelte-headlessui](https://github.com/rgossiaux/svelte-headlessui)
+- ✅ [sveltekit-i18n](https://github.com/sveltekit-i18n/lib)
 
 Tooling:
 

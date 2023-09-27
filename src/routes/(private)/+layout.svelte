@@ -4,8 +4,7 @@
     import MenuItems from "$lib/MenuItems.svelte";
     import MenuItem from "$lib/MenuItem.svelte";
     import SectionTitle from "$lib/SectionTitle.svelte";
-
-    export let data;
+    import { t } from "$lib/translations";
 </script>
 
 <div class="flex flex-col h-screen">
@@ -18,11 +17,11 @@
         </div>
 
         <div class="flex flew-row gap-4 grow justify-center">
-            <a href="/" class="text-gray-600 text-sm font-bold">Accueil</a>
-            <a href="/" class="text-gray-600 text-sm font-bold">Chat</a>
-            <a href="/" class="text-gray-600 text-sm font-bold">Notifications</a>
-            <a href="/" class="text-gray-600 text-sm font-bold">Activités</a>
-            <a href="/" class="text-gray-600 text-sm font-bold">Rechercher</a>
+            <a href="/" class="text-gray-600 text-sm font-bold">{$t("menu.Home")}</a>
+            <a href="/" class="text-gray-600 text-sm font-bold">{$t("menu.Chat")}</a>
+            <a href="/" class="text-gray-600 text-sm font-bold">{$t("menu.Notifications")}</a>
+            <a href="/" class="text-gray-600 text-sm font-bold">{$t("menu.Activity")}</a>
+            <a href="/" class="text-gray-600 text-sm font-bold">{$t("menu.Find")}</a>
         </div>
 
         <div class="w-40 flex flex-row flex-row-reverse">
@@ -36,17 +35,17 @@
                 </MenuButton>
                 <MenuItems>
                     <SectionTitle align="left" class="p-2 text-xs">
-                        <span class="text-xs font-bold">Notifications are on</span>
+                        <span class="text-xs font-bold">{$t("menu.Notifications are on")}</span>
                     </SectionTitle>
                     <p class="text-xs p-2 color-gray-700">
-                        You're set to receive email and browser notifications for everything all the time.
+                        {$t("menu.You're set to receive email and browser notifications for everything all the time.")}
                     </p>
                     <SectionTitle align="left" class="p-2 text-xs">
-                        <span class="text-xs font-bold">Personal Settings</span>
+                        <span class="text-xs font-bold">{$t("menu.Personal Settings")}</span>
                     </SectionTitle>
-                    <MenuItem href="/my/profile">Profile, password</MenuItem>
-                    <MenuItem href="/my/preferences">Preferences</MenuItem>
-                    <MenuItem href="/logout/">Log out</MenuItem>
+                    <MenuItem href="/my/profile">{$t("menu.Profile, password")}</MenuItem>
+                    <MenuItem href="/my/preferences">{$t("menu.Preferences")}</MenuItem>
+                    <MenuItem href="/logout/">{$t("menu.Log out")}</MenuItem>
                 </MenuItems>
             </Menu>
         </div>

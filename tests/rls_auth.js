@@ -348,7 +348,8 @@ describe("Anonymous user is connected", () => {
             _password     => 'mysecret',
             _is_active    => true,
             _is_superuser => false,
-            _spaces       => '[{"slug": "space-1", "role": "space.MEMBER"}]'
+            _spaces       => '[{"slug": "space-1", "role": "space.MEMBER"}]',
+            _lang         => 'EN'
         )`)[0].create_user;
         expect(result.status_code).toBe(200);
         expect(result.user_id).toBe(5);

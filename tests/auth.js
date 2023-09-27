@@ -28,7 +28,8 @@ test("Create a user and login", async() => {
         _password     => 'secret',
         _is_active    => true,
         _is_superuser => false,
-        _spaces       => null
+        _spaces       => null,
+        _lang         => 'EN'
     )`)[0]?.create_user.user_id;
 
     expect(

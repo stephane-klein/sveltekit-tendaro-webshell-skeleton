@@ -90,7 +90,8 @@ async function main(sql) {
                 _password     => ${user.password},
                 _is_active    => TRUE,
                 _is_superuser => ${user?.is_superuser || false},
-                _spaces       => ${user.spaces}
+                _spaces       => ${user.spaces},
+                _lang         => ${user.lang || "EN" }
             )->>'user_id' AS user_id;
         `;
     }

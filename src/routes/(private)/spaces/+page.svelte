@@ -1,16 +1,17 @@
 <script>
     import Card from "$lib/Card.svelte";
     import Button from "$lib/Button.svelte";
+    import { t } from "$lib/translations";
 
     export let data;
 </script>
 
 <div class="flex flex-row gap-2 justify-center m-4">
-    <Button>Make a new workspace</Button>
-    <Button>Invite people</Button>
+    <Button>{$t("buttons.Make a new workspace")}</Button>
+    <Button>{$t("buttons.Invite people")}</Button>
 </div>
 
-<p class="text-center text-xs">Pinned and recent workspace below.</p>
+<p class="text-center text-xs">{$t("spaces.Pinned and recent workspace below")}.</p>
 
 <div class="flex flex-row gap-4 m-4 justify-center">
     {#each data.spaces as space}

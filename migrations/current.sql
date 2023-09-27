@@ -28,6 +28,11 @@ LANGUAGE plpgsql;
 
 CREATE SCHEMA IF NOT EXISTS auth;
 
+CREATE TYPE auth.langs AS ENUM (
+    'EN',
+    'FR'
+);
+
 DROP TABLE IF EXISTS auth.users CASCADE;
 CREATE TABLE auth.users (
     id                     SERIAL PRIMARY KEY,
@@ -36,6 +41,7 @@ CREATE TABLE auth.users (
     last_name              VARCHAR(150) DEFAULT NULL,
     email                  VARCHAR(360) NOT NULL UNIQUE,
     password               VARCHAR(255) NOT NULL,
+    lang                   auth.langs NOT NULL DEFAULT 'EN',
     is_active              BOOLEAN DEFAULT FALSE,
     is_superuser           BOOLEAN DEFAULT FALSE,
     is_serviceuser         BOOLEAN DEFAULT FALSE,
@@ -303,6 +309,7 @@ CREATE FUNCTION auth.create_user(
     _username              VARCHAR(100),
     _first_name            VARCHAR(150),
     _last_name             VARCHAR(150),
+    _lang                  auth.langs,
     _email                 VARCHAR(360),
     _password              VARCHAR(255),
     _is_active             BOOLEAN,
@@ -358,7 +365,8 @@ BEGIN
             email,
             password,
             is_active,
-            is_superuser
+            is_superuser,
+            lang
         )
         VALUES(
             COALESCE(_id, NEXTVAL('auth.users_id_seq')),
@@ -368,7 +376,8 @@ BEGIN
             LOWER(TRIM(_email)),
             utils.CRYPT(TRIM(_password), utils.GEN_SALT('bf', 8)),
             _is_active,
-            FALSE
+            FALSE,
+            COALESCE(_lang, 'EN')
         ) RETURNING id
     ),
     _space_users AS (
@@ -604,6 +613,7 @@ BEGIN
             users.first_name,
             users.last_name,
             users.email,
+            users.lang,
             users.is_active,
             users.last_login,
             users.last_seen,
@@ -625,6 +635,7 @@ BEGIN
             users.first_name,
             users.last_name,
             users.email,
+            users.lang,
             users.is_active,
             users.last_login,
             users.date_joined,

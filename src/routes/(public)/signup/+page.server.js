@@ -101,7 +101,8 @@ export const actions = {
                     _spaces       => ${[{
                         slug: data.get("space"),
                         role: 'space.MEMBER'
-                    }]}
+                    }]},
+                    _lang         => 'EN'
                 );
             `)[0].create_user;
         }
