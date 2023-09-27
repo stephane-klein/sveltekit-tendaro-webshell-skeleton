@@ -2,7 +2,8 @@
     import Card from "$lib/Card.svelte";
     import Button from "$lib/Button.svelte";
     import FlatCard from "$lib/FlatCard.svelte";
-    import OptionButton from "$lib/OptionButton.svelte";
+    import ContextMenu from "$lib/ContextMenu.svelte";
+    import ContextMenuItem from "$lib/ContextMenuItem.svelte";
     import SectionTitle from "$lib/SectionTitle.svelte";
     import Link from "$lib/Link.svelte";
 
@@ -14,7 +15,12 @@
         <div class="flex-initial">
             <h2 class="text-center text-xl font-semibold text-gray-600">{data.space.title}</h2>
 
-            <OptionButton class="absolute top-2 right-2" />
+            <ContextMenu>
+                <ContextMenuItem href="./edit/">Edit workspace details</ContextMenuItem>
+                <ContextMenuItem href="./setup/">Setup modules</ContextMenuItem>
+                <ContextMenuItem href="./users/">Add some people</ContextMenuItem>
+                <ContextMenuItem href="./delete/">Archive or delete</ContextMenuItem>
+            </ContextMenu>
         </div>
 
         <p class="text-xs w-4/5 text-center m-auto flex-initial">{data.space.description}</p>
