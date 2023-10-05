@@ -1,10 +1,13 @@
 <script>
     import logo from "$lib/assets/tendaro.svg";
+    import Avatar from "$lib/Avatar.svelte";
     import { Menu, MenuButton } from "@rgossiaux/svelte-headlessui";
     import MenuItems from "$lib/MenuItems.svelte";
     import MenuItem from "$lib/MenuItem.svelte";
     import SectionTitle from "$lib/SectionTitle.svelte";
     import { t } from "$lib/translations";
+
+    export let data;
 </script>
 
 <div class="flex flex-col h-screen">
@@ -27,11 +30,7 @@
         <div class="w-40 flex flex-row flex-row-reverse">
             <Menu class="relative">
                 <MenuButton>
-                    <img
-                        class="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                    />
+                    <Avatar first_name={data.user.first_name} last_name={data.user.last_name} />
                 </MenuButton>
                 <MenuItems>
                     <SectionTitle align="left" class="p-2 text-xs">

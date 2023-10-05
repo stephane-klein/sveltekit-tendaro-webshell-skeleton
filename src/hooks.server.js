@@ -20,7 +20,7 @@ export async function handle({ event, resolve }) {
             event.locals.client.impersonated_by = openSessionResult.impersonated_by;
 
             const result = (await event.locals.sql`
-                WITH _spaces AS (
+                WITH _current_space AS (
                     SELECT
                         spaces.id        AS id,
                         spaces.slug      AS slug,
@@ -30,20 +30,13 @@ export async function handle({ event, resolve }) {
                     INNER JOIN auth.spaces
                            ON space_users.space_id=spaces.id
                     WHERE
-                        space_users.user_id=${event.locals.client.user.id}
-                ),
-                _current_space AS (
-                    SELECT *
-                    FROM _spaces
-                    WHERE _spaces.slug=${event.params?.space_slug || null}
-                    LIMIT 1
+                        (space_users.user_id=${event.locals.client.user.id}) AND
+                        (spaces.slug=${event.params?.space_slug || null})
                 )
                 SELECT
-                    (SELECT ARRAY_AGG(ROW_TO_JSON(_spaces)) FROM _spaces)::JSONB[] AS spaces,
                     (SELECT ROW_TO_JSON(_current_space) FROM _current_space) AS current_space
             `)[0];
 
-            event.locals.client.spaces = result.spaces;
             event.locals.client.current_space = result.current_space;
         } else {
             event.cookies.delete("session");

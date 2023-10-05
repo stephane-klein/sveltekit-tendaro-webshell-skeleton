@@ -1,4 +1,4 @@
-export async function load({locals}) {
+export async function load({locals, parent}) {
     return {
         space: (
             (await locals.sql`
@@ -11,6 +11,7 @@ export async function load({locals}) {
                 WHERE
                     id=${locals.client.current_space.id}
             `)[0]
-        )
+        ),
+        ...(await parent())
     };
 }
