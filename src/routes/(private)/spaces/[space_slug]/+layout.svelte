@@ -6,6 +6,7 @@
     import ContextMenuItem from "$lib/ContextMenuItem.svelte";
     import SectionTitle from "$lib/SectionTitle.svelte";
     import Link from "$lib/Link.svelte";
+    import { t } from "$lib/translations";
 
     export let data;
 </script>
@@ -16,10 +17,10 @@
             <h2 class="text-center text-xl font-semibold text-gray-600">{data.space.title}</h2>
 
             <ContextMenu>
-                <ContextMenuItem href="./edit/">Edit workspace details</ContextMenuItem>
-                <ContextMenuItem href="./setup/">Setup modules</ContextMenuItem>
-                <ContextMenuItem href="./users/">Add some people</ContextMenuItem>
-                <ContextMenuItem href="./delete/">Archive or delete</ContextMenuItem>
+                <ContextMenuItem href="./edit/">{$t("menu.Edit workspace details")}</ContextMenuItem>
+                <ContextMenuItem href="./setup/">{$t("menu.Setup modules")}</ContextMenuItem>
+                <ContextMenuItem href="./users/">{$t("menu.Add some people")}</ContextMenuItem>
+                <ContextMenuItem href="./delete/">{$t("menu.Archive or delete")}</ContextMenuItem>
             </ContextMenu>
         </div>
 
