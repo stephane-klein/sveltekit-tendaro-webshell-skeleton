@@ -106,6 +106,12 @@ devDependencies:
   prettier-plugin-svelte:
     specifier: 3.0.3
     version: 3.0.3(prettier@3.0.3)(svelte@4.2.1)
+  sveltekit-superforms:
+    specifier: 1.8.0
+    version: 1.8.0(@sveltejs/kit@1.25.1)(svelte@4.2.1)(zod@3.22.4)
+  zod:
+    specifier: 3.22.4
+    version: 3.22.4
 
 packages:
 
@@ -748,7 +754,6 @@ packages:
   /@fastify/busboy@2.0.0:
     resolution: {integrity: sha512-JUFJad5lv7jxj926GPgymrWQxxjPYuJNiNjNMzqT+HiuP6Vl3dk5xzG+8sTX96np0ZAluvaMzPsjhHZ5rNuNQQ==}
     engines: {node: '>=14'}
-    dev: false
 
   /@graphile/logger@0.2.0:
     resolution: {integrity: sha512-jjcWBokl9eb1gVJ85QmoaQ73CQ52xAaOCF29ukRbYNl6lY+ts0ErTaDYOBlejcbUs2OpaiqYLO5uDhyLFzWw4w==}
@@ -1269,7 +1274,6 @@ packages:
       vite: 4.4.11
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.4.5)(svelte@4.2.1)(vite@4.4.11):
     resolution: {integrity: sha512-zjiuZ3yydBtwpF3bj0kQNV0YXe+iKE545QGZVTaylW3eAzFr+pJ/cwK8lZEaRp4JtaJXhD5DyWAV4AxLh6DgaQ==}
@@ -1285,7 +1289,6 @@ packages:
       vite: 4.4.11
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@sveltejs/vite-plugin-svelte@2.4.5(svelte@4.2.1)(vite@4.4.11):
     resolution: {integrity: sha512-UJKsFNwhzCVuiZd06jM/psscyNJNDwjQC+qIeb7GBJK9iWeQCcIyfcPWDvbCudfcJggY9jtxJeeaZH7uny93FQ==}
@@ -1305,7 +1308,6 @@ packages:
       vitefu: 0.2.4(vite@4.4.11)
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@sveltekit-i18n/base@1.3.5(svelte@4.2.1):
     resolution: {integrity: sha512-R7xzuv2A2U7HBr4Yn8qdjhHcAcWUO8XzqkUAqDYuCsd4tfJydtZCAct8AhvrV781W0MYRmFXavkYCV6hOoAEoA==}
@@ -1367,7 +1369,6 @@ packages:
 
   /@types/cookie@0.5.1:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
-    dev: false
 
   /@types/estree@1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
@@ -2130,7 +2131,6 @@ packages:
   /cookie@0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
-    dev: false
 
   /create-jest@29.7.0:
     resolution: {integrity: sha512-Adz2bdH0Vq3F53KEMJOoftQFutWCukm6J24wbPWRO4k1kMY7gS7ds/uoJkNuV8wDCtWWnuwGcJwpWcih+zEW1Q==}
@@ -2291,7 +2291,6 @@ packages:
 
   /devalue@4.3.1:
     resolution: {integrity: sha512-Kc0TSP9IUU9eg55au5Q3YtqaYI2cgntVpunJV9Exbm9nvlBeTE5p2NqYHfpuXK6+VF2hF5PI+BPFPUti7e2N1g==}
-    dev: false
 
   /diacritics@1.3.0:
     resolution: {integrity: sha512-wlwEkqcsaxvPJML+rDh/2iS824jbREk6DUMUKkEaSlxdYHeS43cClJtsWglvw2RfeXGm6ohKDqsXteJ5sP5enA==}
@@ -2839,7 +2838,6 @@ packages:
 
   /esm-env@1.0.0:
     resolution: {integrity: sha512-Cf6VksWPsTuW01vU9Mk/3vRue91Zevka5SjyNf3nEpokFRuqt/KjUQoGAwq9qMmhpLTHmXzSIrFRw8zxWzmFBA==}
-    dev: false
 
   /espree@9.6.1:
     resolution: {integrity: sha512-oruZaFkjorTpF32kDSI5/75ViwGeZginGGy2NoOSg3Q9bnwlnmDm4HLnkl0RE3n+njDXR037aY1+x58Z/zFdwQ==}
@@ -3210,7 +3208,6 @@ packages:
 
   /globalyzer@0.1.0:
     resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
-    dev: false
 
   /globby@11.1.0:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
@@ -3237,7 +3234,6 @@ packages:
 
   /globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
-    dev: false
 
   /gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
@@ -4316,7 +4312,6 @@ packages:
   /kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
-    dev: false
 
   /known-css-properties@0.28.0:
     resolution: {integrity: sha512-9pSL5XB4J+ifHP0e0jmmC98OGC1nL8/JjS+fi6mnTlIf//yt/MfVLtKg7S6nCtj/8KTcWX7nRlY0XywoYY1ISQ==}
@@ -4526,7 +4521,6 @@ packages:
     resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
     engines: {node: '>=10.0.0'}
     hasBin: true
-    dev: false
 
   /mimic-fn@2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
@@ -5494,7 +5488,6 @@ packages:
 
   /set-cookie-parser@2.6.0:
     resolution: {integrity: sha512-RVnVQxTXuerk653XfuliOxBP81Sf0+qfQE73LIYKcyMYHG94AuH0kgrQpRDuTZnSmjpysHmzxJXKNfa6PjFhyQ==}
-    dev: false
 
   /shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
@@ -5770,7 +5763,6 @@ packages:
       svelte: ^3.19.0 || ^4.0.0
     dependencies:
       svelte: 4.2.1
-    dev: false
 
   /svelte@4.2.1:
     resolution: {integrity: sha512-LpLqY2Jr7cRxkrTc796/AaaoMLF/1ax7cto8Ot76wrvKQhrPmZ0JgajiWPmg9mTSDqO16SSLiD17r9MsvAPTmw==}
@@ -5799,6 +5791,18 @@ packages:
       '@sveltekit-i18n/parser-default': 1.1.1
       svelte: 4.2.1
     dev: false
+
+  /sveltekit-superforms@1.8.0(@sveltejs/kit@1.25.1)(svelte@4.2.1)(zod@3.22.4):
+    resolution: {integrity: sha512-ig4SJNe72UNlmL2FjXk6Z3I7WYEm+qerA8PB4WOjQkOirztiDNJrY/bs1lF8VLxc56TSG9JQkCtZkgUdlH3yYA==}
+    peerDependencies:
+      '@sveltejs/kit': 1.x
+      svelte: 3.x || 4.x
+      zod: 3.x
+    dependencies:
+      '@sveltejs/kit': 1.25.1(svelte@4.2.1)(vite@4.4.11)
+      svelte: 4.2.1
+      zod: 3.22.4
+    dev: true
 
   /symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
@@ -5872,7 +5876,6 @@ packages:
     dependencies:
       globalyzer: 0.1.0
       globrex: 0.1.2
-    dev: false
 
   /tmpl@1.0.5:
     resolution: {integrity: sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==}
@@ -6038,7 +6041,6 @@ packages:
     engines: {node: '>=14.0'}
     dependencies:
       '@fastify/busboy': 2.0.0
-    dev: false
 
   /universalify@0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
@@ -6179,7 +6181,6 @@ packages:
         optional: true
     dependencies:
       vite: 4.4.11
-    dev: false
 
   /w3c-keyname@2.2.8:
     resolution: {integrity: sha512-dpojBhNsCNN7T82Tm7k26A6G9ML3NkhDsnw9n/eoxSRlVBB4CEtIQ/KTCLI2Fwf3ataSXRhYFkQi3SlnFwPvPQ==}
@@ -6380,6 +6381,10 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+    dev: true
+
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: true
 
   '@github.com/porsager/postgres/archive/b4c2526ba13e4f20f286b087887510e36c855f2f.tar.gz':

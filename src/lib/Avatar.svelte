@@ -7,10 +7,19 @@
 <span>
     <span
         title={`${first_name} ${last_name}`}
-        class={`rounded-full bg-amber-600 box-border text-white ${
-            size == "small" ? "leading-6 text-sm p-1" : "leading-10 text-base p-2"
-        }`}
+        class={`flex flex-col justify-center items-center rounded-full bg-amber-600 box-border text-white
+            ${size === "small" ? "w-8 h-8" : ""}
+            ${size === "normal" ? "w-12 h-12" : ""}
+            ${size === "big" ? "w-32 h-32" : ""}
+        `}
     >
-        {first_name.substring(0, 1).toUpperCase()}{last_name.substring(0, 1).toUpperCase()}
+        <span
+            class={`
+                ${size === "small" ? "text-sm" : ""}
+                ${size === "normal" ? "text-lg" : ""}
+                ${size === "big" ? "text-6xl" : ""}`}
+        >
+            {first_name.substring(0, 1).toUpperCase()}{last_name.substring(0, 1).toUpperCase()}
+        </span>
     </span>
 </span>

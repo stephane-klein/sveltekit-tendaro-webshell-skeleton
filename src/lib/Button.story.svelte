@@ -1,5 +1,5 @@
 <script>
-    import Button from "./Button.svelte";
+    import Button from "$lib/Button.svelte";
 
     export let Hst;
 </script>

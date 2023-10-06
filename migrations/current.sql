@@ -1140,6 +1140,58 @@ BEGIN
 END;
 $$;
 
+DROP FUNCTION IF EXISTS auth.user_change_password;
+CREATE FUNCTION auth.user_change_password(_new_password VARCHAR) RETURNS JSON
+LANGUAGE 'plpgsql' SECURITY DEFINER
+AS $$
+BEGIN
+    IF ((NULLIF(CURRENT_SETTING('auth.user_id', TRUE), ''))::INTEGER IS NULL) THEN
+        RETURN (
+            SELECT json_build_object(
+                'status_code', 401,
+                'status', 'No logged-in user'
+            )
+        );
+    END IF;
+
+    UPDATE auth.users
+        SET password=utils.CRYPT(TRIM(_new_password), utils.GEN_SALT('bf', 8))
+        WHERE id=(NULLIF(CURRENT_SETTING('auth.user_id', TRUE), ''))::INTEGER;
+
+    INSERT INTO auth.audit_events
+        (
+            entity_type,
+            entity_id,
+            event_type,
+            space_ids
+        )
+        VALUES(
+            'auth.users',
+            (NULLIF(CURRENT_SETTING('auth.user_id', TRUE), ''))::INTEGER,
+            'user.PASSWORD_CHANGED',
+            (
+                SELECT ARRAY_AGG(space_id)
+                FROM auth.space_users
+                WHERE user_id = (NULLIF(CURRENT_SETTING('auth.user_id', TRUE), ''))::INTEGER
+            )
+        );
+
+        RETURN (
+            SELECT json_build_object(
+                'status_code', 200,
+                'status', 'Password changed'
+            )
+        );
+
+    RETURN (
+        SELECT json_build_object(
+            'status_code', 404,
+            'status', 'User not found'
+        )
+    );
+END;
+$$;
+
 
 CREATE TRIGGER space_after_insert
     AFTER INSERT ON auth.spaces

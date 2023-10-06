@@ -5,9 +5,13 @@
 </script>
 
 <Hst.Story>
+    <Avatar first_name="Stéphane" last_name="Klein" size="small" />
+
+    <hr />
+
     <Avatar first_name="Stéphane" last_name="Klein" />
 
     <hr />
 
-    <Avatar first_name="Stéphane" last_name="Klein" size="small" />
+    <Avatar first_name="Stéphane" last_name="Klein" size="big" />
 </Hst.Story>

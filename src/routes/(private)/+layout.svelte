@@ -50,7 +50,7 @@
         </div>
     </nav>
 
-    <div class="grow flex flex-col p-4">
+    <div class="grow flex flex-col p-4 justify-start">
         <slot />
     </div>
 </div>
