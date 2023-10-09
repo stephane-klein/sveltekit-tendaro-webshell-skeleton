@@ -1,5 +1,5 @@
+import { redirect, fail } from "@sveltejs/kit";
 import { z } from "zod";
-import { fail } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 
 const schema = z.object({
@@ -32,6 +32,6 @@ export const actions = {
             WHERE id=1
         `;
 
-        return { form };
+        throw redirect(302, "./");
     }
 };
