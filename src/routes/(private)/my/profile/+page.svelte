@@ -30,10 +30,6 @@
             <label class="font-semibold" for="email">Email:</label>
             <input class="w-full border p-2" type="text" name="email" bind:value={$form.email} />
         </div>
-        <div>
-            <label class="font-semibold" for="password">Password:</label>
-            <input class="w-full border p-2" type="password" name="password" bind:value={$form.password} />
-        </div>
         <Button>Save my changes</Button>
     </form>
 </Card>

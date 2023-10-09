@@ -3,10 +3,8 @@ import { fail } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 
 const schema = z.object({
-    username: z.string(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    email: z.string().email()
+    new_password: z.string(),
+    confirm_new_password: z.string()
 });
 
 export async function load({locals}) {
@@ -22,15 +20,17 @@ export const actions = {
             return fail(400, { form });
         }
 
-        await locals.sql`
-            UPDATE auth.users
-            SET
-                username=${form.data.username},
-                first_name=${form.data.first_name},
-                last_name=${form.data.last_name},
-                email=${form.data.email}
-            WHERE id=1
-        `;
+        if (
+            (form.data.new_password) &&
+            (form.data.new_password.trim().length > 0)
+        ) {
+            const result = await locals.sql`
+                SELECT auth.user_change_password(${form.data.new_password})
+            `;
+            if (result[0].status_code !== 200) {
+                return fail(result[0].status_code, result[0]);
+            }
+        }
 
         return { form };
     }

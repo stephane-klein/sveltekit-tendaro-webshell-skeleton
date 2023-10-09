@@ -42,8 +42,9 @@
                     <SectionTitle align="left" class="p-2 text-xs">
                         <span class="text-xs font-bold">{$t("menu.Personal Settings")}</span>
                     </SectionTitle>
-                    <MenuItem href="/my/profile">{$t("menu.Profile, password")}</MenuItem>
-                    <MenuItem href="/my/preferences">{$t("menu.Preferences")}</MenuItem>
+                    <MenuItem href="/my/profile/">{$t("menu.Profile")}</MenuItem>
+                    <MenuItem href="/my/password/">{$t("menu.Change Password")}</MenuItem>
+                    <MenuItem href="/my/preferences/">{$t("menu.Preferences")}</MenuItem>
                     <MenuItem href="/logout/">{$t("menu.Log out")}</MenuItem>
                 </MenuItems>
             </Menu>
