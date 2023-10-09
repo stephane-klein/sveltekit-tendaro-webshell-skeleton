@@ -4,6 +4,8 @@
     import Button from "$lib/Button.svelte";
     import Card from "$lib/Card.svelte";
     import Avatar from "$lib/Avatar.svelte";
+    import Input from "$lib/Input.svelte";
+    import InputLabel from "$lib/InputLabel.svelte";
 
     export let data;
 
@@ -15,20 +17,20 @@
 
     <form method="POST" class="flex flex-col gap-4 my-4 w-full">
         <div>
-            <label class="font-semibold" for="username">Username:</label>
-            <input class="w-full border p-2" type="text" name="username" bind:value={$form.username} />
+            <InputLabel for="username">Username:</InputLabel>
+            <Input type="text" name="username" bind:value={$form.username} />
         </div>
         <div>
-            <label class="font-semibold" for="first_name">Firstname:</label>
-            <input class="w-full border p-2" type="text" name="first_name" bind:value={$form.first_name} />
+            <InputLabel for="first_name">Firstname:</InputLabel>
+            <Input type="text" name="first_name" bind:value={$form.first_name} />
         </div>
         <div>
-            <label class="font-semibold" for="last_name">Lastname:</label>
-            <input class="w-full border p-2" type="text" name="last_name" bind:value={$form.last_name} />
+            <InputLabel for="last_name">Lastname:</InputLabel>
+            <Input type="text" name="last_name" bind:value={$form.last_name} />
         </div>
         <div>
-            <label class="font-semibold" for="email">Email:</label>
-            <input class="w-full border p-2" type="text" name="email" bind:value={$form.email} />
+            <InputLabel for="email">Email:</InputLabel>
+            <Input type="text" name="email" bind:value={$form.email} />
         </div>
         <Button>Save my changes</Button>
     </form>
