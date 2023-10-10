@@ -16,7 +16,7 @@
 
 <div class="flex flex-row gap-4 m-4 justify-center">
     {#each data.spaces as space}
-        <Card class="w-64 h-48 flex flex-col gap-2">
+        <Card class="w-64 h-48 flex flex-col gap-2 p-4">
             <h2 class="text-base font-semibold text-gray-600">
                 <a data-sveltekit-reload href={`/spaces/${space.slug}/`}>{space.title}</a>
             </h2>

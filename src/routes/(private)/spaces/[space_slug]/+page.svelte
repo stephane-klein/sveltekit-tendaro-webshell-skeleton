@@ -6,6 +6,7 @@
     import ContextMenuItem from "$lib/ContextMenuItem.svelte";
     import SectionTitle from "$lib/SectionTitle.svelte";
     import Link from "$lib/Link.svelte";
+    import Avatar from "$lib/Avatar.svelte";
     import { t } from "$lib/translations";
 
     export let data;
@@ -27,13 +28,17 @@
         <p class="text-xs w-4/5 text-center m-auto flex-initial">{data.space.description}</p>
 
         <div class="flex flex-row gap-2 justify-center content-center">
-            <Button color="secondary" size="small">Add some people</Button>
+            {#if data.space.users.length == 1}
+                <Button href="./members/" color="secondary" size="small">Add some people</Button>
+            {:else}
+                <Button href="./members/" color="secondary" size="small">Set up people</Button>
+            {/if}
 
-            <img
-                class="h-6 w-6 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-            />
+            <div class="flex flex-row gap-1">
+                {#each data.space.users as user}
+                    <Avatar first_name={user.first_name} last_name={user.last_name} size="small" />
+                {/each}
+            </div>
         </div>
 
         <div class="flex flex-row gap-2 justify-center flex-wrap m-auto flex-none">

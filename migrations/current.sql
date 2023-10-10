@@ -438,6 +438,7 @@ DROP TABLE IF EXISTS auth.invitations CASCADE;
 CREATE TABLE auth.invitations (
     id          SERIAL PRIMARY KEY,
     invited_by  INTEGER DEFAULT NULL,
+    invited_at  TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     email       VARCHAR(360) DEFAULT NULL,
     token       TEXT,
     expires     TIMESTAMP WITH TIME ZONE DEFAULT (CURRENT_TIMESTAMP + '7days'::interval),
@@ -1193,6 +1194,27 @@ END;
 $$;
 
 
+DROP FUNCTION IF EXISTS auth.get_user_by_email;
+CREATE FUNCTION auth.get_user_by_email(_email VARCHAR) RETURNS JSON
+LANGUAGE 'plpgsql' SECURITY DEFINER
+AS $$
+BEGIN
+    RETURN (
+        SELECT json_build_object(
+            'id', id,
+            'username', username,
+            'first_name', first_name,
+            'last_name', last_name,
+            'email', email
+        )
+        FROM
+            auth.users
+        WHERE
+            email=_email
+    );
+END;
+$$;
+
 CREATE TRIGGER space_after_insert
     AFTER INSERT ON auth.spaces
     FOR EACH ROW
@@ -1531,7 +1553,12 @@ CREATE POLICY space_users_insert
     FOR INSERT
     TO application_user
     WITH CHECK (
-        user_id=NULLIF(CURRENT_SETTING('auth.user_id', TRUE), '')::INTEGER
+        space_id = ANY(
+            REGEXP_SPLIT_TO_ARRAY(
+                NULLIF(CURRENT_SETTING('auth.spaces', TRUE), ''),
+                ','
+            )::INTEGER[]
+        )
     );
 
 CREATE POLICY user_read
