@@ -5,7 +5,9 @@ import { superValidate } from "sveltekit-superforms/server";
 const schema = z.object({
     slug: z.string(),
     title: z.string(),
-    description: z.string().optional()
+    description: z.string().optional(),
+    is_publicly_browsable: z.boolean(),
+    invitation_required: z.boolean()
 });
 
 export async function load() {
@@ -27,12 +29,16 @@ export const actions = {
                 (
                     slug,
                     title,
-                    description
+                    description,
+                    is_publicly_browsable,
+                    invitation_required
                 )
                 VALUES(
                     ${form.data.slug},
                     ${form.data.title},
-                    ${form.data.description}
+                    ${form.data.description},
+                    ${form.data.is_publicly_browsable},
+                    ${form.data.invitation_required}
                 ) RETURNING id
             )
             INSERT INTO auth.space_users

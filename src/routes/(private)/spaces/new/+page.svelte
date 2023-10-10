@@ -6,6 +6,7 @@
     import InputLabel from "$lib/InputLabel.svelte";
     import Input from "$lib/Input.svelte";
     import Textarea from "$lib/Textarea.svelte";
+    import Checkbox from "$lib/Checkbox.svelte";
 
     export let data;
 
@@ -29,6 +30,20 @@
                 <InputLabel for="description">Description:</InputLabel>
                 <Textarea type="text" name="description" bind:value={$form.description} />
             </div>
+            <Checkbox
+                id="is_publicly_browsable"
+                name="is_publicly_browsable"
+                label="Publicly browsable"
+                bind:checked={$form.is_publicly_browsable}
+            ></Checkbox>
+            <Checkbox
+                id="invitation_required"
+                name="invitation_required"
+                label="Invite only"
+                bind:checked={$form.invitation_required}
+            >
+                <p>Only people who are explicitly invited can see this project</p>
+            </Checkbox>
         </div>
     </Card>
 

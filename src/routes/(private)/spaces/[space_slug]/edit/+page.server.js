@@ -3,12 +3,29 @@ import { z } from "zod";
 import { superValidate } from "sveltekit-superforms/server";
 
 const schema = z.object({
+    slug: z.string(),
     title: z.string(),
-    description: z.string().optional()
+    description: z.string().optional(),
+    is_publicly_browsable: z.boolean(),
+    invitation_required: z.boolean()
 });
 
-export async function load({parent}) {
-    const form = await superValidate((await parent()).space, schema);
+export async function load({locals}) {
+    const form = await superValidate(
+        (await locals.sql`
+            SELECT
+                slug,
+                title,
+                description,
+                is_publicly_browsable,
+                invitation_required
+            FROM
+                auth.spaces
+            WHERE
+                id=${locals.client.current_space.id}
+        `)[0],
+        schema
+    );
     return { form };
 };
 
@@ -23,11 +40,14 @@ export const actions = {
         await locals.sql`
             UPDATE auth.spaces
             SET
+                slug=${form.data.slug},
                 title=${form.data.title},
-                description=${form.data.description}
+                description=${form.data.description},
+                is_publicly_browsable=${form.data.is_publicly_browsable},
+                invitation_required=${form.data.invitation_required}
             WHERE id=${locals.client.current_space.id}
         `;
 
-        throw redirect(302, "./");
+        throw redirect(302, `../../${form.data.slug}/edit/`);
     }
 };
