@@ -1479,6 +1479,28 @@ CREATE POLICY space_read
         )
     );
 
+CREATE POLICY space_write
+    ON auth.spaces
+    AS PERMISSIVE
+    FOR UPDATE
+    TO application_user
+    USING(
+        id = ANY(
+            REGEXP_SPLIT_TO_ARRAY(
+                NULLIF(CURRENT_SETTING('auth.spaces', TRUE), ''),
+                ','
+            )::INTEGER[]
+        )
+    )
+    WITH CHECK (
+        id = ANY(
+            REGEXP_SPLIT_TO_ARRAY(
+                NULLIF(CURRENT_SETTING('auth.spaces', TRUE), ''),
+                ','
+            )::INTEGER[]
+        )
+    );
+
 CREATE POLICY space_users_read
     ON auth.space_users
     AS PERMISSIVE

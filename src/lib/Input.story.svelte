@@ -1,6 +1,7 @@
 <script>
     import Input from "$lib/Input.svelte";
     import Select from "$lib/Select.svelte";
+    import Textarea from "$lib/Textarea.svelte";
     import InputLabel from "$lib/InputLabel.svelte";
 
     export let Hst;
@@ -17,5 +18,9 @@
             <option value="EN">English</option>
             <option value="FR">French</option>
         </Select>
+    </div>
+    <div>
+        <InputLabel for="description">Description:</InputLabel>
+        <Textarea type="text" name="description"></Textarea>
     </div>
 </Hst.Story>
