@@ -13,7 +13,7 @@
     const { form } = superForm(data.form);
 </script>
 
-<Card class="w-[40rem] mx-auto relative px-8 flex flex-col items-center">
+<Card class="w-[60rem] mx-auto relative px-8 flex flex-col items-center">
     <h2 class="text-3xl font-semibold m-6">Edit details for this workspace</h2>
 
     <form method="POST" class="flex flex-col gap-4 my-4 w-full">
