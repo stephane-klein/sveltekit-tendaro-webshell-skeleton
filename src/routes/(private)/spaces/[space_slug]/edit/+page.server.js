@@ -19,9 +19,6 @@ export const actions = {
         if (!form.valid) {
             return fail(400, { form });
         }
-        console.log('locals');
-        console.log(locals);
-        console.log(locals.client.current_space.id);
 
         await locals.sql`
             UPDATE auth.spaces
