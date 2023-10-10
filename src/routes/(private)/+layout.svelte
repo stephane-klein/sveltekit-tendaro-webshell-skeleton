@@ -51,7 +51,7 @@
         </div>
     </nav>
 
-    <div class="grow flex flex-col p-4 justify-start">
+    <div class="grow flex flex-col p-4 justify-start items-center gap-4">
         <slot />
     </div>
 </div>

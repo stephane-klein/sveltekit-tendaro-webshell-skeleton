@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex flex-row gap-2 justify-center m-4">
-    <Button>{$t("buttons.Make a new workspace")}</Button>
+    <Button href="./new/">{$t("buttons.Make a new workspace")}</Button>
     <Button>{$t("buttons.Invite people")}</Button>
 </div>
 

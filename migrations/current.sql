@@ -551,7 +551,7 @@ BEGIN
         SELECT
             (SELECT id FROM _user LIMIT 1) AS user_id,
             space_invitations.space_id     AS space_id,
-            space_invitations.role          AS role
+            space_invitations.role         AS role
         FROM
             auth.space_invitations
         WHERE
@@ -1469,6 +1469,7 @@ CREATE POLICY space_read
     TO application_user
     USING(
         (is_publicly_browsable IS TRUE) OR
+        (created_by = NULLIF(CURRENT_SETTING('auth.user_id', TRUE), '')::INTEGER) OR
         (
             id = ANY(
                 REGEXP_SPLIT_TO_ARRAY(
@@ -1479,7 +1480,7 @@ CREATE POLICY space_read
         )
     );
 
-CREATE POLICY space_write
+CREATE POLICY space_update
     ON auth.spaces
     AS PERMISSIVE
     FOR UPDATE
@@ -1501,6 +1502,15 @@ CREATE POLICY space_write
         )
     );
 
+CREATE POLICY space_insert
+    ON auth.spaces
+    AS PERMISSIVE
+    FOR INSERT
+    TO application_user
+    WITH CHECK (
+        NULLIF(CURRENT_SETTING('auth.user_id', TRUE), '') IS NOT NULL
+    );
+
 CREATE POLICY space_users_read
     ON auth.space_users
     AS PERMISSIVE
@@ -1513,6 +1523,15 @@ CREATE POLICY space_users_read
                 ','
             )::INTEGER[]
         )
+    );
+
+CREATE POLICY space_users_insert
+    ON auth.space_users
+    AS PERMISSIVE
+    FOR INSERT
+    TO application_user
+    WITH CHECK (
+        user_id=NULLIF(CURRENT_SETTING('auth.user_id', TRUE), '')::INTEGER
     );
 
 CREATE POLICY user_read
