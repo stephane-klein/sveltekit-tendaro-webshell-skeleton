@@ -6,9 +6,26 @@
     import MenuItem from "$lib/MenuItem.svelte";
     import SectionTitle from "$lib/SectionTitle.svelte";
     import { t } from "$lib/translations";
+    import toast, { Toaster } from "svelte-french-toast";
+    import { getFlash } from "sveltekit-flash-message";
+    import { page } from "$app/stores";
+
+    const flash = getFlash(page);
+    flash.subscribe(($flash) => {
+        if (!$flash) return;
+
+        toast($flash.message, {
+            style: "background: rgb(89, 101, 104); margin-top: 2em; color: white;",
+            icon: $flash.type == "success" ? "✅" : "❌"
+        });
+
+        flash.set(undefined);
+    });
 
     export let data;
 </script>
+
+<Toaster />
 
 <div class="flex flex-col h-screen">
     <nav class="flex flex-row w-full items-center px-3 my-2">

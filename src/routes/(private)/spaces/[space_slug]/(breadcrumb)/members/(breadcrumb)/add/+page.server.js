@@ -1,4 +1,4 @@
-import { redirect } from "@sveltejs/kit";
+import { redirect, setFlash } from "sveltekit-flash-message/server";
 import { z } from "zod";
 import { superValidate } from "sveltekit-superforms/server";
 import jwt from "jsonwebtoken";
@@ -16,7 +16,8 @@ export async function load({locals}) {
 };
 
 export const actions = {
-    default: async({ locals, request }) => {
+    default: async(event) => {
+        const { locals, request } = event;
         const form = await superValidate(request, schema);
 
         // Test if the user already has an account
@@ -56,6 +57,15 @@ export const actions = {
                     },
                     "User added to workspace"
                 );
+                throw redirect(
+                    302,
+                    "./../",
+                    {
+                        type: "success",
+                        message: `${user.first_name} ${user.last_name} <${user.email}> has been added to ${locals.client.current_space.title} workspace`
+                    },
+                    event
+                );
             } else {
                 logger.info(
                     {
@@ -63,6 +73,15 @@ export const actions = {
                         space_id: locals.client.current_space.id
                     },
                     "User already present in workspace"
+                );
+                throw redirect(
+                    302,
+                    "./../",
+                    {
+                        type: "success",
+                        message: `${user.first_name} ${user.last_name} <${user.email}> is already in ${locals.client.current_space.title} workspace`
+                    },
+                    event
                 );
             }
         } else {
@@ -138,8 +157,15 @@ export const actions = {
                 },
                 "Send invitation"
             );
+            throw redirect(
+                302,
+                "./../",
+                {
+                    type: "success",
+                    message: `An invitation email was sent to ${form.data.email}`
+                },
+                event
+            );
         }
-
-        throw redirect(302, "./../");
     }
 };

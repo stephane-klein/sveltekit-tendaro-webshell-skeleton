@@ -1,4 +1,5 @@
-import { redirect, fail } from "@sveltejs/kit";
+import { fail } from "@sveltejs/kit";
+import { redirect, setFlash } from "sveltekit-flash-message/server";
 import { z } from "zod";
 import { superValidate } from "sveltekit-superforms/server";
 
@@ -12,10 +13,18 @@ export async function load({locals}) {
 };
 
 export const actions = {
-    default: async({ locals, request }) => {
+    default: async(event) => {
+        const { locals, request } = event;
         const form = await superValidate(request, schema);
 
         if (!form.valid) {
+            setFlash(
+                {
+                    type: "error",
+                    message: "Error"
+                },
+                event
+            );
             return fail(400, { form });
         }
 
@@ -26,6 +35,14 @@ export const actions = {
             WHERE id=1
         `;
 
-        throw redirect(302, "./");
+        throw redirect(
+            303,
+            "./",
+            {
+                type: "success",
+                message: "Great, we got those edits"
+            },
+            event
+        );
     }
 };

@@ -1,5 +1,6 @@
-import { redirect, fail } from "@sveltejs/kit";
+import { fail } from "@sveltejs/kit";
 import { z } from "zod";
+import { redirect, setFlash } from "sveltekit-flash-message/server";
 import { superValidate } from "sveltekit-superforms/server";
 
 const schema = z.object({
@@ -30,10 +31,18 @@ export async function load({locals}) {
 };
 
 export const actions = {
-    default: async({ locals, request }) => {
+    default: async(event) => {
+        const { locals, request } = event;
         const form = await superValidate(request, schema);
 
         if (!form.valid) {
+            setFlash(
+                {
+                    type: "error",
+                    message: "Error"
+                },
+                event
+            );
             return fail(400, { form });
         }
 
@@ -48,6 +57,14 @@ export const actions = {
             WHERE id=${locals.client.current_space.id}
         `;
 
-        throw redirect(302, `../../${form.data.slug}/edit/`);
+        throw redirect(
+            302,
+            `../../${form.data.slug}/edit/`,
+            {
+                type: "success",
+                message: "Great, we got those edits"
+            },
+            event
+        );
     }
 };
