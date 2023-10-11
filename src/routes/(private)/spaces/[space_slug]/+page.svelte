@@ -29,9 +29,9 @@
 
         <div class="flex flex-row gap-2 justify-center content-center">
             {#if data.space.users.length == 1}
-                <Button href="./members/" color="secondary" size="small">Add some people</Button>
+                <Button href="./members/" color="secondary" size="small">{$t("menu.Add some people")}</Button>
             {:else}
-                <Button href="./members/" color="secondary" size="small">Set up people</Button>
+                <Button href="./members/" color="secondary" size="small">{$t("menu.Set up people")}</Button>
             {/if}
 
             <div class="flex flex-row gap-1">

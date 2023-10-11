@@ -36,6 +36,24 @@ export const config = {
             loader: async() => (await import("./en/spaces.json")).default
         },
         {
+            locale: "en",
+            key: "my_password",
+            routes: ["/my/password/"],
+            loader: async() => (await import("./en/my_password.json")).default
+        },
+        {
+            locale: "en",
+            key: "my_preferences",
+            routes: ["/my/preferences/"],
+            loader: async() => (await import("./en/my_preferences.json")).default
+        },
+        {
+            locale: "en",
+            key: "space_edit",
+            routes: [/^\/spaces\/.*\/edit\/$/],
+            loader: async() => (await import("./en/space_edit.json")).default
+        },
+        {
             locale: "fr",
             key: "menu",
             loader: async() => (await import("./fr/menu.json")).default
@@ -57,6 +75,30 @@ export const config = {
             routes: ["/spaces/"],
             loader: async() => (await import("./fr/spaces.json")).default
         },
+        {
+            locale: "fr",
+            key: "my_password",
+            routes: ["/my/password/"],
+            loader: async() => (await import("./fr/my_password.json")).default
+        },
+        {
+            locale: "fr",
+            key: "my_preferences",
+            routes: ["/my/preferences/"],
+            loader: async() => (await import("./fr/my_preferences.json")).default
+        },
+        {
+            locale: "fr",
+            key: "space_edit",
+            routes: [/^\/spaces\/.*\/edit\/$/],
+            loader: async() => (await import("./fr/space_edit.json")).default
+        },
+        {
+            locale: "fr",
+            key: "space_members",
+            routes: [/^\/spaces\/.*\/members\/.*/],
+            loader: async() => (await import("./fr/space_members.json")).default
+        }
     ]
 };
 

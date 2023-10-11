@@ -1,11 +1,11 @@
 <script>
     import { superForm } from "sveltekit-superforms/client";
-
     import Button from "$lib/Button.svelte";
     import Card from "$lib/Card.svelte";
     import Avatar from "$lib/Avatar.svelte";
     import Input from "$lib/Input.svelte";
     import InputLabel from "$lib/InputLabel.svelte";
+    import { t } from "$lib/translations";
 
     export let data;
 
@@ -17,21 +17,21 @@
 
     <form method="POST" class="flex flex-col gap-4 my-4 w-full">
         <div>
-            <InputLabel for="username">Username:</InputLabel>
+            <InputLabel for="username">{$t("menu.Username:")}</InputLabel>
             <Input type="text" name="username" bind:value={$form.username} />
         </div>
         <div>
-            <InputLabel for="first_name">Firstname:</InputLabel>
+            <InputLabel for="first_name">{$t("menu.Firstname:")}</InputLabel>
             <Input type="text" name="first_name" bind:value={$form.first_name} />
         </div>
         <div>
-            <InputLabel for="last_name">Lastname:</InputLabel>
+            <InputLabel for="last_name">{$t("menu.Lastname:")}</InputLabel>
             <Input type="text" name="last_name" bind:value={$form.last_name} />
         </div>
         <div>
-            <InputLabel for="email">Email:</InputLabel>
+            <InputLabel for="email">{$t("menu.Email:")}</InputLabel>
             <Input type="text" name="email" bind:value={$form.email} />
         </div>
-        <Button>Save my changes</Button>
+        <Button>{$t("menu.Save my changes")}</Button>
     </form>
 </Card>

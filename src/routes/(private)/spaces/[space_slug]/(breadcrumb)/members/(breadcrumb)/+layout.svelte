@@ -1,5 +1,6 @@
 <script>
     import { goto } from "$app/navigation";
+    import { t } from "$lib/translations";
 </script>
 
 <div class="grow flex flex-col">
@@ -10,7 +11,7 @@
         }}
     >
         <h2 class="text-center text-base font-semibold text-blue-600 underline">
-            <a href="./../">People who can see this project</a>
+            <a href="./../">{$t("space_members.People who can see this project")}</a>
         </h2>
     </div>
 

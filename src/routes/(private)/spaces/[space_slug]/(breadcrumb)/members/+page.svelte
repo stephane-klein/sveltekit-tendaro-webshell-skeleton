@@ -3,6 +3,7 @@
     import Avatar from "$lib/Avatar.svelte";
     import Button from "$lib/Button.svelte";
     import SectionTitle from "$lib/SectionTitle.svelte";
+    import { t } from "$lib/translations";
 
     export let data;
 </script>
@@ -28,9 +29,9 @@
                 <path d="M19 16v6"></path>
                 <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
             </svg>
-            <span>Add people</span>
+            <span>{$t("menu.Add people")}</span>
         </Button>
-        <h2 class="text-3xl font-semibold m-2 text-center">People who can see this project</h2>
+        <h2 class="text-3xl font-semibold m-2 text-center">{$t("space_members.People who can see this project")}</h2>
     </div>
     <div class="p-4 w-full">
         <div class="flex flex-col gap-2 w-full">
@@ -49,11 +50,14 @@
                 </div>
             {/each}
 
-            <SectionTitle class="my-8 text-xl" as="h3" align="center">Pending people</SectionTitle>
+            <SectionTitle class="my-8 text-xl" as="h3" align="center">
+                {$t("space_members.Pending people")}
+            </SectionTitle>
 
             {#each data.invitations as invite}
                 <div class="flex flex-row gap-2">
-                    {invite.email} invited by
+                    {invite.email}
+                    {$t("space_members.invited by")}
                     {invite.invited_by_first_name}
                     {invite.invited_by_last_name} at {invite.invited_at}
                 </div>

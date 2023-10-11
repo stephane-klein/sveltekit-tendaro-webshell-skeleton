@@ -2,6 +2,7 @@ import { fail } from "@sveltejs/kit";
 import { redirect, setFlash } from "sveltekit-flash-message/server";
 import { z } from "zod";
 import { superValidate } from "sveltekit-superforms/server";
+import { t } from "$lib/translations";
 
 const schema = z.object({
     lang: z.string()
@@ -40,7 +41,7 @@ export const actions = {
             "./",
             {
                 type: "success",
-                message: "Great, we got those edits"
+                message: t.get("menu.Great, we got those edits")
             },
             event
         );
