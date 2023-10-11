@@ -1,10 +1,12 @@
 version: '3.8'
 services:
   postgres:
-    image: postgres:15
+    image: postgres:16
     restart: unless-stopped
+    ports:
+      - 5434:5432
     environment:
-      POSTGRES_DB: postgres
+      POSTGRES_DB: myapp
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     volumes:
@@ -22,9 +24,10 @@ services:
     ports:
       - 5173:3000
     environment:
-      PORTGRES_URI: postgres://postgres:password@postgres/postgres
+      POSTGRES_URL: postgres://postgres:password@postgres/myapp
       # Used by graphile-migrate
-      DATABASE_URL: postgres://postgres:password@postgres/postgres
+      DATABASE_URL: postgres://postgres:password@postgres/myapp
+      ORIGIN: http://localhost:5173
     depends_on:
       postgres:
         condition: service_healthy

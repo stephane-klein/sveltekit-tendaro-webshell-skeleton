@@ -1,0 +1,7 @@
+node_modules/
+volumes/
+tests/
+sqls/
+scripts/
+build/
+.svelte-kit/
