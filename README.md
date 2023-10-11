@@ -28,6 +28,7 @@ Components and libraries:
 - ✅ [TailwindCSS](https://tailwindcss.com/)
 - ✅ [Tabler Icons](https://tabler-icons.io/)
 - ✅ [Superforms](https://superforms.rocks/)
+- ✅ [sveltekit-flash-message](https://github.com/ciscoheat/sveltekit-flash-message) + [svelte-french-toast](https://github.com/kbrgl/svelte-french-toast)
 
 Tooling:
 
