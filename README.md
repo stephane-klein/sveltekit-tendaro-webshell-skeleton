@@ -25,6 +25,9 @@ Components and libraries:
 - ✅ PostgreSQL [Row-Level Security](https://www.postgresql.org/docs/16/ddl-rowsecurity.html)
 - ✅ [svelte-headlessui](https://github.com/rgossiaux/svelte-headlessui)
 - ✅ [sveltekit-i18n](https://github.com/sveltekit-i18n/lib)
+- ✅ [TailwindCSS](https://tailwindcss.com/)
+- ✅ [Tabler Icons](https://tabler-icons.io/)
+- ✅ [Superforms](https://superforms.rocks/)
 
 Tooling:
 
