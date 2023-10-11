@@ -11,7 +11,7 @@
     export let data;
 </script>
 
-<Card class="w-4/5 max-w-screen-xl m-auto relative grow px-8">
+<Card class="w-4/5 max-w-screen-xl m-auto relative grow px-8 p-4">
     <div class="flex flex-col gap-4">
         <div class="flex-initial">
             <h2 class="text-center text-xl font-semibold text-gray-600">{data.space.title}</h2>

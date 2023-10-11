@@ -25,7 +25,7 @@
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
         <img alt="Tendaro logo" class="w-16 mx-auto" src={logo} />
 
-        <Card>
+        <Card class="p-4">
             <h1 class="text-center my-4 text-xl font-semibold">{$t("login.Log in to Tendaro")}</h1>
 
             {#if form?.error}<p class="error">{form.error}</p>{/if}
