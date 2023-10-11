@@ -9,7 +9,7 @@
 
 <Card class="w-[60rem] mx-auto relative flex flex-col items-center grow" title="">
     <div class="border-b w-full py-4 relative">
-        <Button href="./add/" class="absolute top-0 left-0 mx-4 my-6" size="normal">
+        <Button href="./add/" class="absolute top-0 left-0 mx-4 my-6 flex flex-row gap-2" size="normal">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-user-plus"
