@@ -15,7 +15,7 @@ dependencies:
     specifier: 1.25.1
     version: 1.25.1(svelte@4.2.1)(vite@4.4.11)
   '@tailwindcss/forms':
-    specifier: ^0.5.6
+    specifier: 0.5.6
     version: 0.5.6(tailwindcss@3.3.3)
   '@tailwindcss/typography':
     specifier: 0.5.10
@@ -48,8 +48,8 @@ dependencies:
     specifier: 8.4.31
     version: 8.4.31
   postgres:
-    specifier: https://github.com/porsager/postgres/archive/b4c2526ba13e4f20f286b087887510e36c855f2f.tar.gz
-    version: '@github.com/porsager/postgres/archive/b4c2526ba13e4f20f286b087887510e36c855f2f.tar.gz'
+    specifier: 3.4.0
+    version: 3.4.0
   svelte:
     specifier: 4.2.1
     version: 4.2.1
@@ -5163,6 +5163,10 @@ packages:
       xtend: 4.0.2
     dev: false
 
+  /postgres@3.4.0:
+    resolution: {integrity: sha512-d7UtSoCg4hUtzxM9aRi3J8BrM6t0h4bQmgAHG96cDCNpP9CnnWQRdRl7WWNvKs0oOaQU2InGoOi1jETmdZK02g==}
+    dev: false
+
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -6403,9 +6407,3 @@ packages:
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: true
-
-  '@github.com/porsager/postgres/archive/b4c2526ba13e4f20f286b087887510e36c855f2f.tar.gz':
-    resolution: {registry: https://registry.npmjs.org/, tarball: https://github.com/porsager/postgres/archive/b4c2526ba13e4f20f286b087887510e36c855f2f.tar.gz}
-    name: postgres
-    version: 3.3.5
-    dev: false
