@@ -1,0 +1,2 @@
+dsn: postgres://postgres:password@postgres:5432/myapp?sslmode=disable
+docPath: docs/database/

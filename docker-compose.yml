@@ -40,3 +40,14 @@ services:
     ports:
       - "1080:1080"
       - "1025:1025"
+
+  # https://github.com/k1LoW/tbls
+  tbls:
+    profiles:
+      - doc
+    image: ghcr.io/k1low/tbls:v1.70.1
+    command: -c /tbls.yml
+    volumes:
+      - ./tbls.yml:/tbls.yml
+      - ./doc/database/:/doc/database/
+

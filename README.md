@@ -37,6 +37,7 @@ Tooling:
 - ✅ [NodeJS](https://nodejs.org/en/)
 - ✅ [pnpm](https://pnpm.io/)
 - ✅ [Jest](https://jestjs.io/) for unittest
+- ✅ [tbls](https://github.com/k1LoW/tbls) to generate [database documentation](docs/databases/)
 
 ## Getting started
 
@@ -139,3 +140,11 @@ $ pnpm run prettier src/app.html
 ```sh
 $ pnpm run eslint
 ```
+
+## Generate database doc
+
+```sh
+$ ./scripts/generate-database-doc.sh
+```
+
+Next see [`./docs/database/`](./docs/database/).
