@@ -191,7 +191,7 @@ async function main(sql) {
 if (__filename === process.argv[1]) {
     console.log("Load fixtures...");
     const sql = postgres(
-        "postgres://postgres:password@localhost:5432/myapp"
+        process.env.POSTGRES_URL || "postgres://postgres:password@localhost:5432/myapp"
     );
     await main(sql);
     sql.end();
