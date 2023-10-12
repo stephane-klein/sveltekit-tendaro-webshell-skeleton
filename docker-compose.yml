@@ -34,6 +34,14 @@ services:
       interval: 10s
       start_period: 30s
 
+  # https://github.com/k1LoW/tbls
+  tbls:
+    image: ghcr.io/k1low/tbls:v1.70.1
+    command: -c /tbls.yml
+    volumes:
+      - ./tbls.yml:/tbls.yml
+      - ./doc/database/:/doc/database/
+
   maildev:
     image: maildev/maildev:2.1.0
     restart: always
