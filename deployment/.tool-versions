@@ -1,0 +1,5 @@
+direnv 2.32.3
+terraform 1.5.2
+scaleway-cli 2.16.1
+jq 1.6
+gomplate v3.11.5

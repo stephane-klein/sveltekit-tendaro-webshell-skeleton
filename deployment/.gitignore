@@ -1,0 +1,6 @@
+.secret
+*.lock.hcl
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform*

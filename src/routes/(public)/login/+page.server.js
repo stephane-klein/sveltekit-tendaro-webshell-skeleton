@@ -11,7 +11,14 @@ export const actions = {
             )
         `)[0]?.authenticate;
         if (authenticateResult.status_code === 200) {
-            cookies.set("session", authenticateResult?.session_id, { path: "/" });
+            cookies.set(
+                "session",
+                authenticateResult?.session_id,
+                {
+                    path: "/",
+                    secure: (process.env.DISABLE_COOKIE_SECURE ? false : true)
+                }
+            );
             throw redirect(302, "/");
         } else {
             cookies.delete("session");
