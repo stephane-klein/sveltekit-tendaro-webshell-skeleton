@@ -33,7 +33,7 @@ export const actions = {
             UPDATE auth.users
             SET
                 lang=${form.data.lang}
-            WHERE id=1
+            WHERE id=${locals.client.user.id}
         `;
 
         throw redirect(

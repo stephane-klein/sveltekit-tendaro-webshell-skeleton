@@ -39,7 +39,7 @@ export const actions = {
                 first_name=${form.data.first_name},
                 last_name=${form.data.last_name},
                 email=${form.data.email}
-            WHERE id=1
+            WHERE id=${locals.client.user.id}
         `;
 
         throw redirect(
