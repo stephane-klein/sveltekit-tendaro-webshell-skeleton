@@ -306,6 +306,51 @@ CREATE INDEX space_users_role_index ON auth.space_users (role);
 CREATE INDEX space_users_created_by_index ON auth.space_users (created_by);
 CREATE INDEX space_users_created_at_index ON auth.space_users (created_at);
 
+DROP FUNCTION IF EXISTS auth.create_space;
+CREATE FUNCTION auth.create_space(
+    _slug                   VARCHAR(100),
+    _title                  VARCHAR(100),
+    _description            TEXT,
+    _is_publicly_browsable  BOOLEAN,
+    _invitation_required    BOOLEAN
+) RETURNS INTEGER
+LANGUAGE 'plpgsql' SECURITY DEFINER
+AS $$
+DECLARE
+    _space_id INTEGER;
+BEGIN
+    INSERT INTO auth.spaces
+    (
+        slug,
+        title,
+        description,
+        is_publicly_browsable,
+        invitation_required
+    )
+    VALUES(
+        _slug,
+        _title,
+        _description,
+        _is_publicly_browsable,
+        _invitation_required
+    ) RETURNING id INTO _space_id;
+
+    INSERT INTO auth.space_users
+        (
+            user_id,
+            space_id,
+            role
+        )
+        VALUES(
+            (NULLIF(CURRENT_SETTING('auth.user_id', TRUE), ''))::INTEGER,
+            _space_id,
+            'space.OWNER'
+        );
+
+    RETURN _space_id;
+END;
+$$;
+
 DROP FUNCTION IF EXISTS auth.create_user;
 CREATE FUNCTION auth.create_user(
     _id                    INTEGER,

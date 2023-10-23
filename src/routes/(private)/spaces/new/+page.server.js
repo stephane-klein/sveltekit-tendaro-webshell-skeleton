@@ -24,34 +24,13 @@ export const actions = {
         }
 
         await locals.sql`
-            WITH _space AS (
-                INSERT INTO auth.spaces
-                (
-                    slug,
-                    title,
-                    description,
-                    is_publicly_browsable,
-                    invitation_required
-                )
-                VALUES(
-                    ${form.data.slug},
-                    ${form.data.title},
-                    ${form.data.description},
-                    ${form.data.is_publicly_browsable},
-                    ${form.data.invitation_required}
-                ) RETURNING id
-            )
-            INSERT INTO auth.space_users
-                (
-                    user_id,
-                    space_id,
-                    role
-                )
-                VALUES(
-                    (NULLIF(CURRENT_SETTING('auth.user_id', TRUE), ''))::INTEGER,
-                    (SELECT id FROM _space LIMIT 1),
-                    'space.OWNER'
-                )
+            SELECT auth.create_space(
+                _slug => ${form.data.slug},
+                _title => ${form.data.title},
+                _description => ${form.data.description || ""},
+                _is_publicly_browsable => ${form.data.is_publicly_browsable},
+                _invitation_required => ${form.data.invitation_required}
+            );
         `;
 
         throw redirect(302, `../${form.data.slug}/`);
