@@ -6,6 +6,8 @@ This project is a spin-off of [`sveltekit-user-auth-postgres-rls-skeleton`](http
 
 Repository starting point issue (in French): https://github.com/stephane-klein/backlog/issues/313
 
+Note: this project is not a real "skeleton", I don't propose a script to replace the project name, variables... I can qualify this project as a "static" example that I can use as a skeleton.
+
 Opinions:
 
 - No ORM pattern
